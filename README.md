@@ -43,11 +43,10 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=16&pause=1000&color=818CF8&center=true&vCenter=true&width=520&lines=import+cv2,+torch;import+albumentations+as+A;Applying+image+transformations...;Running+ConvNeXt-V2+Inference...;Vision+Model+Deployed!+%F0%9F%9A%80" alt="Typing SVG" />
 </p>
 
-
 <br/>
 
 <p align="center">
   <!-- GitHub Stats disesuaikan dengan warna tema gelap Anda -->
-  <img src="https://github-readme-stats.vercel.app/api?username=LhoWann&show_icons=true&theme=transparent&title_color=818cf8&text_color=cbd5e1&icon_color=f5a623&bg_color=0f172a&hide_border=true&rank_icon=github" alt="LhoWann's GitHub stats" width="48%" />
+  <img src="https://github-readme-stats.anuraghazra1.vercel.app/api?username=LhoWann&show_icons=true&theme=transparent&title_color=818cf8&text_color=cbd5e1&icon_color=f5a623&bg_color=0f172a&hide_border=true&rank_icon=github" alt="LhoWann's GitHub stats" width="48%" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=LhoWann&theme=transparent&title_color=818cf8&text_color=cbd5e1&icon_color=f5a623&bg_color=0f172a&hide_border=true" alt="LhoWann's Streak" width="48%" />
 </p>
