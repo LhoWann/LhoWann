@@ -1,0 +1,145 @@
+from html import escape
+from string import Template
+
+# Ubah teks banner di sini
+GREETING = "HELLO, I'M"
+NAME = "Muhammad Ridwan"
+TAGLINE = "Building things with data & AI."
+
+SVG_TEMPLATE = Template("""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img" aria-label="$name. $tagline">
+  <defs>
+    <!-- Background gelap -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f1a" />
+      <stop offset="1" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Cahaya lembut di belakang orbit -->
+    <radialGradient id="glow" cx="740" cy="150" r="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.32" />
+      <stop offset="0.5" stop-color="#6366f1" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="warm" cx="60" cy="300" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5a623" stop-opacity="0.09" />
+      <stop offset="1" stop-color="#f5a623" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Grid tipis yang memudar ke tepi -->
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.05" />
+    </pattern>
+    <radialGradient id="gridFade" cx="740" cy="150" r="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <mask id="gridMask">
+      <rect width="900" height="300" fill="url(#gridFade)" />
+    </mask>
+
+    <linearGradient id="nameFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#c7d2fe" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#818cf8" />
+      <stop offset="1" stop-color="#f5a623" />
+    </linearGradient>
+
+    <clipPath id="card">
+      <rect width="900" height="300" rx="16" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif; }
+    .mono { font-family: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, 'Courier New', monospace; }
+    .rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; }
+    .d4 { animation-delay: 0.55s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rise { animation: none; }
+    }
+  </style>
+
+  <g clip-path="url(#card)">
+    <rect width="900" height="300" fill="url(#bg)" />
+    <rect width="900" height="300" fill="url(#grid)" mask="url(#gridMask)" />
+    <rect width="900" height="300" fill="url(#warm)" />
+    <rect width="900" height="300" fill="url(#glow)" />
+
+    <!-- Orbit -->
+    <g fill="none">
+      <circle cx="740" cy="150" r="175" stroke="#ffffff" stroke-opacity="0.04" />
+      <circle cx="740" cy="150" r="130" stroke="#ffffff" stroke-opacity="0.08" />
+      <circle cx="740" cy="150" r="90" stroke="#818cf8" stroke-opacity="0.35" stroke-dasharray="2 7">
+        <animateTransform attributeName="transform" type="rotate" from="0 740 150" to="360 740 150" dur="60s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="740" cy="150" r="50" stroke="#ffffff" stroke-opacity="0.10" />
+
+      <!-- Busur terang di orbit luar -->
+      <circle cx="740" cy="150" r="130" stroke="#818cf8" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="90 727">
+        <animateTransform attributeName="transform" type="rotate" from="0 740 150" to="360 740 150" dur="14s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <!-- Titik yang mengorbit -->
+    <g>
+      <circle cx="830" cy="150" r="4" fill="#a5b4fc" />
+      <animateTransform attributeName="transform" type="rotate" from="0 740 150" to="360 740 150" dur="18s" repeatCount="indefinite" />
+    </g>
+    <g>
+      <circle cx="610" cy="150" r="3" fill="#f5a623" />
+      <animateTransform attributeName="transform" type="rotate" from="360 740 150" to="0 740 150" dur="30s" repeatCount="indefinite" />
+    </g>
+    <g>
+      <circle cx="740" cy="100" r="2.5" fill="#ffffff" fill-opacity="0.8" />
+      <animateTransform attributeName="transform" type="rotate" from="0 740 150" to="360 740 150" dur="9s" repeatCount="indefinite" />
+    </g>
+
+    <!-- Inti -->
+    <circle cx="740" cy="150" r="14" fill="#f5a623" fill-opacity="0.15">
+      <animate attributeName="r" values="12;20;12" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="fill-opacity" values="0.22;0.04;0.22" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="740" cy="150" r="5" fill="#f5a623" />
+  </g>
+
+  <!-- Border tipis -->
+  <rect x="0.5" y="0.5" width="899" height="299" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity="0.08" />
+
+  <!-- Teks -->
+  <g class="rise d1">
+    <rect x="64" y="96" width="24" height="1.5" fill="#818cf8" />
+    <text x="100" y="102" class="mono" font-size="13" letter-spacing="3" fill="#818cf8">$greeting</text>
+  </g>
+  <text x="62" y="158" class="sans rise d2" font-size="48" font-weight="700" letter-spacing="-0.5" fill="url(#nameFill)">$name</text>
+  <rect x="64" y="178" width="48" height="3" rx="1.5" fill="url(#accent)" class="rise d3" />
+  <text x="64" y="218" class="sans rise d4" font-size="18" fill="#94a3b8">$tagline</text>
+</svg>
+""")
+
+
+def create_github_banner(output_svg="banner.svg"):
+    svg_content = SVG_TEMPLATE.substitute(
+        greeting=escape(GREETING),
+        name=escape(NAME),
+        tagline=escape(TAGLINE),
+    )
+
+    with open(output_svg, "w", encoding="utf-8") as f:
+        f.write(svg_content)
+
+    print(f"Berhasil! Banner SVG telah disimpan sebagai: {output_svg}")
+    print("Cara pakai di README.md Anda:")
+    print('  <img src="banner.svg" width="100%">')
+
+
+if __name__ == "__main__":
+    create_github_banner()
